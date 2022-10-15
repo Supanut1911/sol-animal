@@ -3,11 +3,6 @@ import fs from "fs";
 import path from "path";
 
 export const getAccounts = (network = "hardhat") => {
-  console.log(
-    "🚀 ~ file: account.util.ts ~ line 6 ~ getAccounts ~ network",
-    network
-  );
-
   const targetEnvPath = path.join(__dirname, `../.env.${network}`);
   const targetEnvExist = fs.existsSync(targetEnvPath);
   const envPath = targetEnvExist
