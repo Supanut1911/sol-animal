@@ -9,8 +9,8 @@ contract Animal {
       name = name_;
   }
 
-  modifier checkEnoughEnergy() {
-    require(energy > 0, "Not enough energy");
+  modifier checkEnoughEnergy(uint _energy) {
+    require(energy > _energy, "Not enough energy");
     _;
   }
 
@@ -26,7 +26,7 @@ contract Animal {
       return (name, energy);
   }
 
-  function useEnergy(uint _energy) public checkEnoughEnergy {
+  function useEnergy(uint _energy) public checkEnoughEnergy(_energy) {
     energy -= _energy;
   }
 }

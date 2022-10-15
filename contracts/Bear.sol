@@ -11,7 +11,7 @@ contract Bear is Animal("Grizzly") {
         _;
     }
 
-    function swim() public checkEnoughEnergy {
+    function swim() public checkEnoughEnergy(20) {
         energy -= 20;
     }
 
