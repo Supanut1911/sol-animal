@@ -1,10 +1,12 @@
 import { ethers } from "hardhat";
+import addressUtil from "../../utils/address.util";
 
 async function main() {
   const Animal = await ethers.getContractFactory("Animal");
   const animal = await Animal.deploy("");
-  console.log(`Animal contract deploy at ${animal.address}`);
   await animal.deployed();
+  console.log(`Animal contract deploy at ${animal.address}`);
+  addressUtil.setAddress("Animal", animal.address);
 }
 
 main().catch((error) => {
